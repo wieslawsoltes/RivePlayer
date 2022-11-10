@@ -97,6 +97,7 @@ public partial class RivePlayer : TemplatedControl
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
+        OnXamlRootChanged(true);
         /*
 #if HAS_UNO
         // XamlRoot.IsHostVisible isn't implemented in Uno.
