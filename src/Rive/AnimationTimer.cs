@@ -5,7 +5,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 /// <summary>
 /// Continuously calls <see cref="RivePlayer.InvalidateAnimation"/> at a fixed rate.

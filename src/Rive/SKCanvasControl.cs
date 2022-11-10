@@ -1,13 +1,15 @@
 ﻿using System;
+using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Media;
 using SkiaSharp;
 
-namespace Avalonia.Controls.Skia;
+namespace Rive;
 
 /// <summary>
 /// SKCanvas control.
 /// </summary>
-public class SKCanvasControl : Control
+internal class SKCanvasControl : Control
 {
     /// <summary>
     /// 

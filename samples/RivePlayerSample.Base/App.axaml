@@ -3,6 +3,6 @@
              x:Class="RivePlayer.App">
     <Application.Styles>
         <FluentTheme Mode="Light"/>
-        <StyleInclude Source="/Rive/RivePlayer.axaml" />
+        <StyleInclude Source="avares://Rive/RivePlayer.axaml" />
     </Application.Styles>
 </Application>

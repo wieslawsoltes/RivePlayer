@@ -1,15 +1,16 @@
 ﻿using System;
+using Avalonia;
 using Avalonia.Platform;
 using Avalonia.Rendering.SceneGraph;
 using Avalonia.Skia;
 using SkiaSharp;
 
-namespace Avalonia.Controls.Skia;
+namespace Rive;
 
 /// <summary>
 /// 
 /// </summary>
-public class SKCanvasDrawOperation : ICustomDrawOperation
+internal class SKCanvasDrawOperation : ICustomDrawOperation
 {
     private readonly Rect _bounds;
     private readonly Action<SKSurface> _invalidate;

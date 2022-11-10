@@ -2,17 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Skia;
 using Avalonia.Interactivity;
 
-
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 // This file contains platform-specific customizations of RivePlayer.
 [TemplatePart(Name = SkiaSurfacePartName, Type = typeof(ContentPresenter))]

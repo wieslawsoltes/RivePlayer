@@ -1,6 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivePlayer", "RivePlayer\RivePlayer.csproj", "{72812C6F-6238-4F28-9BB2-ADB9CC916DB2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{9250E637-380B-4695-827E-4E00C7BC789A}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7B1AD265-CF3E-4BB5-902B-273262C33843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rive", "src\Rive\Rive.csproj", "{B3F74838-9542-4150-86FE-A964C6C7B73B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A279A999-0EF9-4C57-9004-4FFEC6CAF1EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivePlayerSample.Base", "samples\RivePlayerSample.Base\RivePlayerSample.Base.csproj", "{511C35E3-75FC-4190-8930-A2471594C2F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivePlayerSample.Desktop", "samples\RivePlayerSample.Desktop\RivePlayerSample.Desktop.csproj", "{99D94D4D-E5CC-4D73-A98B-D155D848BBA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivePlayerSample.Web", "samples\RivePlayerSample.Web\RivePlayerSample.Web.csproj", "{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +25,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72812C6F-6238-4F28-9BB2-ADB9CC916DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72812C6F-6238-4F28-9BB2-ADB9CC916DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72812C6F-6238-4F28-9BB2-ADB9CC916DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72812C6F-6238-4F28-9BB2-ADB9CC916DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F74838-9542-4150-86FE-A964C6C7B73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F74838-9542-4150-86FE-A964C6C7B73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F74838-9542-4150-86FE-A964C6C7B73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F74838-9542-4150-86FE-A964C6C7B73B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{511C35E3-75FC-4190-8930-A2471594C2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{511C35E3-75FC-4190-8930-A2471594C2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{511C35E3-75FC-4190-8930-A2471594C2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{511C35E3-75FC-4190-8930-A2471594C2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D94D4D-E5CC-4D73-A98B-D155D848BBA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D94D4D-E5CC-4D73-A98B-D155D848BBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D94D4D-E5CC-4D73-A98B-D155D848BBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D94D4D-E5CC-4D73-A98B-D155D848BBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3F74838-9542-4150-86FE-A964C6C7B73B} = {7B1AD265-CF3E-4BB5-902B-273262C33843}
+		{511C35E3-75FC-4190-8930-A2471594C2F9} = {A279A999-0EF9-4C57-9004-4FFEC6CAF1EE}
+		{99D94D4D-E5CC-4D73-A98B-D155D848BBA5} = {A279A999-0EF9-4C57-9004-4FFEC6CAF1EE}
+		{BE114CE1-A6C5-414B-B2C8-BBC63256FBC3} = {A279A999-0EF9-4C57-9004-4FFEC6CAF1EE}
 	EndGlobalSection
 EndGlobal

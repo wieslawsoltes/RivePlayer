@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TrimMode>copyused</TrimMode>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <IsPackable>False</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Rive.RiveSharp" Version="1.0.4-alpha.fb94cdf8a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RivePlayerSample.Base\RivePlayerSample.Base.csproj" />
+  </ItemGroup>
+</Project>

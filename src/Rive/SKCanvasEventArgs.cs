@@ -1,11 +1,11 @@
 ﻿using SkiaSharp;
 
-namespace Avalonia.Controls.Skia;
+namespace Rive;
 
 /// <summary>
 /// 
 /// </summary>
-public class SKCanvasEventArgs
+internal class SKCanvasEventArgs
 {
     /// <summary>
     /// 

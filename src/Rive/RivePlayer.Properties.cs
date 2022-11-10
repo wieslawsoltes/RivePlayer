@@ -8,7 +8,7 @@ using Avalonia;
 using Avalonia.Metadata;
 using RiveSharp;
 
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 // XAML properies for RivePlayer.
 public partial class RivePlayer

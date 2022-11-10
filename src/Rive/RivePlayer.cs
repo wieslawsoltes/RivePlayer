@@ -13,14 +13,14 @@ using Avalonia;
 using Avalonia.Input;
 using Avalonia.Platform;
 
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 /// <summary>
 /// This is a high level XAML control for playing a Rive state machine. The state machine's specific
 /// inputs can be declared as nested properties, and controlled interactively via code or data
 /// binding:
 ///
-///   <rive:RivePlayer Source="ms-appx:///mystatemachine.riv">
+///   <rive:RivePlayer Source="/Assets/mystatemachine.riv">
 ///     <rive:BoolInput Target="inputNameInStateMachine" Value="True" />
 ///     <rive:NumberInput Target="inputNameInStateMachine" Value="{x:Bind ...}" />
 ///     <rive:TriggerInput Target="inputNameInStateMachine" x:Name="..." />
@@ -56,7 +56,7 @@ public partial class RivePlayer
 
     private readonly Uri _baseUri;
 
-    private RivePlayer()
+    private void Init()
     {
         if (StateMachineInputCollection is null)
         {
@@ -72,14 +72,16 @@ public partial class RivePlayer
             (s, e) => HandlePointerEvent(_scene.PointerUp, e);
     }
 
-    public RivePlayer(Uri baseUri) : this()
+    public RivePlayer(Uri baseUri)
     {
         _baseUri = baseUri;
+        Init();
     }
 
-    public RivePlayer(IServiceProvider serviceProvider) : this()
+    public RivePlayer(IServiceProvider serviceProvider)
     {
         _baseUri = serviceProvider.GetContextBaseUri();
+        Init();
     }
 
     private void OnXamlRootChanged(bool isHostVisible)
@@ -137,17 +139,6 @@ public partial class RivePlayer
                 Console.WriteLine("Failed to connect to " + uri.ToString());
                 Console.WriteLine(e.ToString());
             }
-            /*
-            else if (uri.Scheme == "ms-appx")
-            {
-                var file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-                if (file != null && sourceToken == _currentSourceToken)
-                {
-                    IBuffer buffer = await FileIO.ReadBufferAsync(file);
-                    stream = buffer.AsStream();
-                }
-            }
-            */
         }
         else
         {

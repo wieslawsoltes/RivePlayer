@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Markup.Xaml;
 
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 internal static class ServiceProviderExtensions
 {

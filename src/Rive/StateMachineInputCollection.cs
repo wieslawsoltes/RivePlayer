@@ -7,11 +7,11 @@ using System.Collections.Specialized;
 using Avalonia;
 using Avalonia.Collections;
 
-namespace CommunityToolkit.Labs.WinUI.Rive;
+namespace Rive;
 
 /// <summary>
 /// Manages a collection of StateMachineInput objects for <see cref="RivePlayer"/>. The
-/// [ContentProperty] tag on RivePlayer instructs the XAML engine to automatically populate this
+/// [Content] tag on RivePlayer instructs the XAML engine to automatically populate this
 /// collection with nested inputs:
 ///
 ///   <rive:RivePlayer Source="...">
