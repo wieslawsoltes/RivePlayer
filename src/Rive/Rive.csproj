@@ -17,7 +17,7 @@
     <PackageProjectUrl>https://github.com/wieslawsoltes/RivePlayer</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup>
-    <Description>An rive animation player control for Avalonia.</Description>
+    <Description>A rive animation player control for Avalonia.</Description>
     <PackageId>Rive</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>rive;animation;player;vector graphics;rendering;2d;graphics;geometry;shapes;skiasharp;skia;skottie;control;avalonia;avaloniaui</PackageTags>
