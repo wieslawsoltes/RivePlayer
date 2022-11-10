@@ -9,7 +9,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using Avalonia;
 using Avalonia.Input;
+using Avalonia.Platform;
 
 namespace CommunityToolkit.Labs.WinUI.Rive;
 
@@ -52,7 +54,9 @@ public partial class RivePlayer
 
     private DateTime? _lastPaintTime;
 
-    public RivePlayer()
+    private readonly Uri _baseUri;
+
+    private RivePlayer()
     {
         if (StateMachineInputCollection is null)
         {
@@ -66,6 +70,16 @@ public partial class RivePlayer
             (s, e) => HandlePointerEvent(_scene.PointerMove, e);
         this.PointerReleased +=
             (s, e) => HandlePointerEvent(_scene.PointerUp, e);
+    }
+
+    public RivePlayer(Uri baseUri) : this()
+    {
+        _baseUri = baseUri;
+    }
+
+    public RivePlayer(IServiceProvider serviceProvider) : this()
+    {
+        _baseUri = serviceProvider.GetContextBaseUri();
     }
 
     private void OnXamlRootChanged(bool isHostVisible)
@@ -84,6 +98,25 @@ public partial class RivePlayer
         }
     }
 
+    private Stream? Load(string path, Uri? baseUri)
+    {
+        var uri = path.StartsWith("/") ? new Uri(path, UriKind.Relative) : new Uri(path, UriKind.RelativeOrAbsolute);
+        if (uri.IsAbsoluteUri && uri.IsFile)
+        { 
+            var fileStream = File.OpenRead(uri.LocalPath);
+            return fileStream;
+        }
+
+        var loader = AvaloniaLocator.Current.GetService<IAssetLoader>(); 
+        var assetStream = loader?.Open(uri, baseUri);
+        if (assetStream is null)
+        {
+            return default;
+        }
+
+        return assetStream;
+    }
+    
     private async void LoadSourceFileDataAsync(string uriString, int sourceToken)
     {
         if (Uri.TryCreate(uriString, UriKind.Absolute, out var uri))
@@ -117,6 +150,10 @@ public partial class RivePlayer
                 }
             }
             */
+            else
+            {
+                stream = Load(uriString, _baseUri);
+            }
             if (stream != null && sourceToken == _currentSourceToken)
             {
                 var memoryStream = new MemoryStream();
