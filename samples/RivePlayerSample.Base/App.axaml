@@ -1,6 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="RivePlayer.App">
+             x:Class="RivePlayerSample.Base.App">
     <Application.Styles>
         <FluentTheme Mode="Light"/>
         <StyleInclude Source="avares://Rive/RivePlayer.axaml" />

@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ic="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:rive="using:Rive"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RivePlayerSample.Base.MainView">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="400" />
+    </Grid.ColumnDefinitions>
+    <rive:RivePlayer x:Name="RivePlayer"
+                     Grid.Column="0"
+                     Width="600"
+                     Height="600"
+                     DrawInBackground="True"
+                     Source="/Assets/animated-login-screen.riv">
+      <rive:BoolInput Target="isChecking"
+                      Value="{Binding #IsChecking.IsChecked, Mode=OneWay}" />
+      <rive:NumberInput Target="numLook"
+                        Value="{Binding #NumLook.Value, Mode=OneWay}" />
+      <rive:BoolInput Target="isHandsUp"
+                      Value="{Binding #IsHandsUp.IsChecked, Mode=OneWay}" />
+      <rive:TriggerInput x:Name="FailureTrigger"
+                         Target="trigFail" />
+      <rive:TriggerInput x:Name="SuccessTrigger"
+                         Target="trigSuccess" />
+    </rive:RivePlayer>
+    <StackPanel Grid.Column="1"
+                Margin="20"
+                VerticalAlignment="Center"
+                Spacing="10">
+      <CheckBox x:Name="IsChecking"
+                Content="Looking" />
+      <Slider x:Name="NumLook"
+              IsEnabled="{Binding IsChecked, ElementName=IsChecking}"
+              Maximum="100"
+              Minimum="0"
+              Value="0" />
+      <CheckBox x:Name="IsHandsUp"
+                Content="Hands Up" />
+      <Button Content="Failure">
+        <i:Interaction.Behaviors>
+          <ic:EventTriggerBehavior EventName="Click">
+            <ic:CallMethodAction MethodName="Fire"
+                                 TargetObject="{Binding #FailureTrigger}" />
+          </ic:EventTriggerBehavior>
+        </i:Interaction.Behaviors>
+      </Button>
+      <Button Content="Success">
+        <i:Interaction.Behaviors>
+          <ic:EventTriggerBehavior EventName="Click">
+            <ic:CallMethodAction MethodName="Fire"
+                                 TargetObject="{Binding #SuccessTrigger}" />
+          </ic:EventTriggerBehavior>
+        </i:Interaction.Behaviors>
+      </Button>
+    </StackPanel>
+  </Grid>
+</UserControl>

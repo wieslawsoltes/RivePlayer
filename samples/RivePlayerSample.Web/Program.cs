@@ -1,7 +1,7 @@
 using System.Runtime.Versioning;
 using Avalonia;
 using Avalonia.Web;
-using RivePlayer;
+using RivePlayerSample.Base;
 
 [assembly:SupportedOSPlatform("browser")]
 
