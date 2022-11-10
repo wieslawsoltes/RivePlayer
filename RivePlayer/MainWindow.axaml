@@ -19,7 +19,7 @@
                          Width="600"
                          Height="600"
                          DrawInBackground="True"
-                         Source="ms-appx:///animated-login-screen.riv">
+                         Source="/Assets/animated-login-screen.riv">
             <rive:BoolInput Target="isChecking"
                             Value="{Binding #IsChecking.IsChecked, Mode=OneWay}" />
             <rive:NumberInput Target="numLook"
