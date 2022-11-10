@@ -161,9 +161,12 @@ public partial class RivePlayer
             stream.Dispose();  // Don't keep the file open.
             sceneActionsQueue.Enqueue(() => UpdateScene(SceneUpdates.File, memoryStream.ToArray()));
             // Apply deferred state machine inputs once the scene is fully loaded.
-            foreach (Action stateMachineInput in _deferredSMInputsDuringAsyncSourceLoad!)
+            if (_deferredSMInputsDuringAsyncSourceLoad is { })
             {
-                sceneActionsQueue.Enqueue(stateMachineInput);
+                foreach (Action stateMachineInput in _deferredSMInputsDuringAsyncSourceLoad)
+                {
+                    sceneActionsQueue.Enqueue(stateMachineInput);
+                }
             }
         }
 
