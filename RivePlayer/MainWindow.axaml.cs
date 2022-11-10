@@ -8,7 +8,7 @@ namespace RivePlayer
         {
             InitializeComponent();
             
-            this.RivePlayer.Source = "https://public.rive.app/community/runtime-files/2244-4463-animated-login-screen.riv";
+            // this.RivePlayer.Source = "https://public.rive.app/community/runtime-files/2244-4463-animated-login-screen.riv";
         }
     }
 }
