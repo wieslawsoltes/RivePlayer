@@ -46,6 +46,30 @@ public class StateMachineInputCollection : AvaloniaList<AvaloniaObject>
 
     private void InputsVectorChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
+        switch (e.Action)
+        {
+            case NotifyCollectionChangedAction.Add:
+                foreach (var item in e.NewItems)
+                {
+                    var input = (StateMachineInput)item;
+                    input.SetRivePlayer(_rivePlayer);
+                }
+                break;
+            case NotifyCollectionChangedAction.Remove:
+                // TODO:
+                break;
+            case NotifyCollectionChangedAction.Replace:
+                // TODO:
+                break;
+            case NotifyCollectionChangedAction.Move:
+                // TODO:
+                break;
+            case NotifyCollectionChangedAction.Reset:
+                // TODO:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         /* TODO:
         switch (e.Action)
         {
