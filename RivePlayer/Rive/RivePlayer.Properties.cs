@@ -149,8 +149,8 @@ public partial class RivePlayer
     private static void OnStateMachineInputCollectionChanged(AvaloniaPropertyChangedEventArgs<StateMachineInputCollection> obj)
     {
         // Clear the RivePlayer on the old reference so it quits updating us.
-        var oldCollection = (StateMachineInputCollection)obj.OldValue.GetValueOrDefault();
-        oldCollection.SetRivePlayer(null);
+        var oldCollection = (StateMachineInputCollection?)obj.OldValue.GetValueOrDefault();
+        oldCollection?.SetRivePlayer(null);
 
         var newCollection = (StateMachineInputCollection)obj.NewValue.GetValueOrDefault();
         newCollection.SetRivePlayer((RivePlayer)obj.Sender);
