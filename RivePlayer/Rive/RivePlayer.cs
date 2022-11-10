@@ -216,7 +216,7 @@ public partial class RivePlayer
         // Forward the pointer event to the render thread.
         sceneActionsQueue.Enqueue(() =>
         {
-            Mat2D mat = ComputeAlignment(viewSize.X, viewSize.Y);
+            Mat2D mat = ComputeAlignment(viewSize.Width, viewSize.Height);
             if (mat.Invert(out var inverse))
             {
                 Vec2D artboardPos = inverse * new Vec2D((float)pointerPos.X, (float)pointerPos.Y);
