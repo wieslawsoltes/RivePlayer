@@ -55,9 +55,20 @@ public class StateMachineInputCollection : AvaloniaList<AvaloniaObject>
                     input.SetRivePlayer(_rivePlayer);
                 }
                 break;
-            case NotifyCollectionChangedAction.Remove:
-            case NotifyCollectionChangedAction.Move:
             case NotifyCollectionChangedAction.Replace:
+            case NotifyCollectionChangedAction.Move:
+                foreach (var item in e.OldItems)
+                {
+                    var input = (StateMachineInput)item;
+                    input.SetRivePlayer(new WeakReference<RivePlayer>(null!));
+                }
+                foreach (var item in e.NewItems)
+                {
+                    var input = (StateMachineInput)item;
+                    input.SetRivePlayer(_rivePlayer);
+                }
+                break;
+            case NotifyCollectionChangedAction.Remove:
             case NotifyCollectionChangedAction.Reset:
                 foreach (var item in e.OldItems)
                 {
