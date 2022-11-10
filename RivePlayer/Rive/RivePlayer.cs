@@ -54,6 +54,10 @@ public partial class RivePlayer
 
     public RivePlayer()
     {
+        if (StateMachineInputCollection is null)
+        {
+            StateMachineInputCollection = new StateMachineInputCollection();
+        }
         this.StateMachineInputCollection.SetRivePlayer(this);
         this.Loaded += OnLoaded;
         this.PointerPressed +=
