@@ -56,16 +56,14 @@ public class StateMachineInputCollection : AvaloniaList<AvaloniaObject>
                 }
                 break;
             case NotifyCollectionChangedAction.Remove:
-                // TODO:
-                break;
-            case NotifyCollectionChangedAction.Replace:
-                // TODO:
-                break;
             case NotifyCollectionChangedAction.Move:
-                // TODO:
-                break;
+            case NotifyCollectionChangedAction.Replace:
             case NotifyCollectionChangedAction.Reset:
-                // TODO:
+                foreach (var item in e.OldItems)
+                {
+                    var input = (StateMachineInput)item;
+                    input.SetRivePlayer(new WeakReference<RivePlayer>(null!));
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
