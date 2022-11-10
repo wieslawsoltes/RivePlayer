@@ -25,7 +25,6 @@
     <PackageReference Include="Avalonia.Web" Version="$(AvaloniaVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BehaviorsTestApplication.Base\BehaviorsTestApplication.Base.csproj" />
     <ProjectReference Include="..\RivePlayerSample.Base\RivePlayerSample.Base.csproj" />
   </ItemGroup>
 </Project>
