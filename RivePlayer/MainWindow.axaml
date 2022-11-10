@@ -21,11 +21,11 @@
                          DrawInBackground="True"
                          Source="ms-appx:///animated-login-screen.riv">
             <rive:BoolInput Target="isChecking"
-                            Value="{Binding IsChecking.IsChecked, Mode=OneWay}" />
+                            Value="{Binding #IsChecking.IsChecked, Mode=OneWay}" />
             <rive:NumberInput Target="numLook"
-                              Value="{Binding NumLook.Value, Mode=OneWay}" />
+                              Value="{Binding #NumLook.Value, Mode=OneWay}" />
             <rive:BoolInput Target="isHandsUp"
-                            Value="{Binding IsHandsUp.IsChecked, Mode=OneWay}" />
+                            Value="{Binding #IsHandsUp.IsChecked, Mode=OneWay}" />
             <rive:TriggerInput x:Name="FailureTrigger"
                                Target="trigFail" />
             <rive:TriggerInput x:Name="SuccessTrigger"
@@ -48,7 +48,7 @@
                 <i:Interaction.Behaviors>
                     <ic:EventTriggerBehavior EventName="Click">
                         <ic:CallMethodAction MethodName="Fire"
-                                             TargetObject="{Binding FailureTrigger}" />
+                                             TargetObject="{Binding #FailureTrigger}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
             </Button>
@@ -56,7 +56,7 @@
                 <i:Interaction.Behaviors>
                     <ic:EventTriggerBehavior EventName="Click">
                         <ic:CallMethodAction MethodName="Fire"
-                                             TargetObject="{Binding SuccessTrigger}" />
+                                             TargetObject="{Binding #SuccessTrigger}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
             </Button>
