@@ -119,25 +119,23 @@ public partial class RivePlayer
     
     private async void LoadSourceFileDataAsync(string uriString, int sourceToken)
     {
-        if (Uri.TryCreate(uriString, UriKind.Absolute, out var uri))
+        Stream? stream = null;
+        
+        if (Uri.TryCreate(uriString, UriKind.Absolute, out var uri) && (uri.Scheme == "http" || uri.Scheme == "https"))
         {
-            Stream? stream = null;
-            if (uri.Scheme == "http" || uri.Scheme == "https")
+            try
             {
-                try
+                HttpResponseMessage response = await new HttpClient().GetAsync(uri);
+                if (response.IsSuccessStatusCode)
                 {
-                    HttpResponseMessage response = await new HttpClient().GetAsync(uri);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        stream = await response.Content.ReadAsStreamAsync();
-                    }
+                    stream = await response.Content.ReadAsStreamAsync();
                 }
-                catch (HttpRequestException e)
-                {
-                    // TODO: Load a 404 file?
-                    Console.WriteLine("Failed to connect to " + uri.ToString());
-                    Console.WriteLine(e.ToString());
-                }
+            }
+            catch (HttpRequestException e)
+            {
+                // TODO: Load a 404 file?
+                Console.WriteLine("Failed to connect to " + uri.ToString());
+                Console.WriteLine(e.ToString());
             }
             /*
             else if (uri.Scheme == "ms-appx")
@@ -150,23 +148,25 @@ public partial class RivePlayer
                 }
             }
             */
-            else
+        }
+        else
+        {
+            stream = Load(uriString, _baseUri);
+        }
+
+        if (stream != null && sourceToken == _currentSourceToken)
+        {
+            var memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            stream.Dispose();  // Don't keep the file open.
+            sceneActionsQueue.Enqueue(() => UpdateScene(SceneUpdates.File, memoryStream.ToArray()));
+            // Apply deferred state machine inputs once the scene is fully loaded.
+            foreach (Action stateMachineInput in _deferredSMInputsDuringAsyncSourceLoad!)
             {
-                stream = Load(uriString, _baseUri);
-            }
-            if (stream != null && sourceToken == _currentSourceToken)
-            {
-                var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                stream.Dispose();  // Don't keep the file open.
-                sceneActionsQueue.Enqueue(() => UpdateScene(SceneUpdates.File, memoryStream.ToArray()));
-                // Apply deferred state machine inputs once the scene is fully loaded.
-                foreach (Action stateMachineInput in _deferredSMInputsDuringAsyncSourceLoad!)
-                {
-                    sceneActionsQueue.Enqueue(stateMachineInput);
-                }
+                sceneActionsQueue.Enqueue(stateMachineInput);
             }
         }
+
         _deferredSMInputsDuringAsyncSourceLoad = null;
     }
 
