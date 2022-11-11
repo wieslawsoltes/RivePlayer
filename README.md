@@ -3,7 +3,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Rive.svg)](https://www.nuget.org/packages/Rive)
 [![NuGet](https://img.shields.io/nuget/dt/Rive.svg)](https://www.nuget.org/packages/Rive)
 
-A rive animation player control for Avalonia.
+A [rive](https://rive.app/) animation player control for Avalonia.
 
 ## Usage
 
