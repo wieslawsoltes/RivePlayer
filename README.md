@@ -10,6 +10,13 @@ A [rive](https://rive.app/) animation player control for Avalonia.
 https://www.nuget.org/packages/Rive/
 
 ```xaml
+<Application.Styles>
+    <!-- ... -->
+    <StyleInclude Source="avares://Rive/RivePlayer.axaml" />
+</Application.Styles>
+```
+
+```xaml
 xmlns:rive="using:Rive"
 ```
 
