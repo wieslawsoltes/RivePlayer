@@ -42,6 +42,6 @@ Source="https://public.rive.app/community/runtime-files/2244-4463-animated-login
 
 ## License
 
-Based on sources from https://github.com/CommunityToolkit/Labs-Windows/tree/main/labs/RivePlayer
+Based on sources from [CommunityToolkit](https://github.com/CommunityToolkit/Labs-Windows/tree/main/labs/RivePlayer)
 
 RivePlayer is licensed under the [MIT license](LICENSE.TXT).
