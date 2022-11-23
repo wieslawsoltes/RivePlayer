@@ -47,6 +47,12 @@ Source="/Assets/animated-login-screen.riv"
 Source="https://public.rive.app/community/runtime-files/2244-4463-animated-login-screen.riv"
 ```
 
+## Resources
+
+- https://rive.app/
+- https://github.com/rive-app/rive-cpp
+- https://github.com/rive-app/rive-sharp
+
 ## License
 
 Based on sources from [CommunityToolkit](https://github.com/CommunityToolkit/Labs-Windows/tree/main/labs/RivePlayer)
