@@ -14,7 +14,7 @@
     <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Rive.RiveSharp" Version="1.0.4-alpha.fb94cdf8a" />
+    <PackageReference Include="Rive.RiveSharp" Version="$(RiveRiveSharpVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RivePlayerSample.Base\RivePlayerSample.Base.csproj" />

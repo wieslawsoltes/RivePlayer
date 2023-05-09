@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Metadata;
+using Avalonia.Reactive;
 using RiveSharp;
 
 namespace Rive;
@@ -15,10 +16,10 @@ public partial class RivePlayer
 {
     static RivePlayer()
     {
-        SourceProperty.Changed.Subscribe(OnSourceNameChanged);
-        ArtboardProperty.Changed.Subscribe(OnArtboardNameChanged);
-        StateMachineProperty.Changed.Subscribe(OnStateMachineNameChanged);
-        StateMachineInputCollectionProperty.Changed.Subscribe(OnStateMachineInputCollectionChanged);
+        SourceProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(OnSourceNameChanged));
+        ArtboardProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(OnArtboardNameChanged));
+        StateMachineProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(OnStateMachineNameChanged));
+        StateMachineInputCollectionProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<StateMachineInputCollection>>(OnStateMachineInputCollectionChanged));
     }
     
     // Monotonically increasing ID of the current Source. Increments everytime Source changes.

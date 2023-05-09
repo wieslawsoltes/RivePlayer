@@ -1,18 +1,19 @@
 using System;
 using System.Runtime.Versioning;
+using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Web;
+using Avalonia.Browser;
 using RivePlayerSample.Base;
 
 [assembly:SupportedOSPlatform("browser")]
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args) 
     {
         try
         {
-            BuildAvaloniaApp().SetupBrowserApp("out");
+            await BuildAvaloniaApp().StartBrowserAppAsync("out");
         }
         catch (Exception e)
         {

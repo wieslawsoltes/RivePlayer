@@ -5,6 +5,7 @@
 using System;
 using Avalonia;
 using Avalonia.Metadata;
+using Avalonia.Reactive;
 
 namespace Rive;
 
@@ -69,7 +70,7 @@ public abstract partial class StateMachineInput : StyledElement
 /// </summary>
 public class BoolInput : StateMachineInput
 {
-    static BoolInput() => ValueProperty.Changed.Subscribe(OnValueChanged);
+    static BoolInput() => ValueProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<bool>>(OnValueChanged));
 
     /// <summary>
     /// Identifies the <see cref="Value"/> property.
@@ -109,7 +110,7 @@ public class BoolInput : StateMachineInput
 /// </summary>
 public class NumberInput : StateMachineInput
 {
-    static NumberInput() => ValueProperty.Changed.Subscribe(OnValueChanged);
+    static NumberInput() => ValueProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<double>>(OnValueChanged));
 
     private static void OnNext()
     {
