@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Rendering.SceneGraph;
 using Avalonia.Skia;
@@ -56,9 +57,9 @@ internal class SKCanvasDrawOperation : ICustomDrawOperation
     /// 
     /// </summary>
     /// <param name="context"></param>
-    public void Render(IDrawingContextImpl context)
+    public void Render(ImmediateDrawingContext context)
     {
-        var leaseFeature = context.GetFeature<ISkiaSharpApiLeaseFeature>();
+        var leaseFeature = context.TryGetFeature<ISkiaSharpApiLeaseFeature>();
         if (leaseFeature is null)
         {
             return;
