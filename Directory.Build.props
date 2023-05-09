@@ -8,6 +8,10 @@
     <PackageProjectUrl>https://github.com/wieslawsoltes/RivePlayer</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
     <AvaloniaVersion>11.0.0-preview7</AvaloniaVersion>
     <RiveRiveSharpVersion>1.0.5-alpha.ddf1abfd2</RiveRiveSharpVersion>
   </PropertyGroup>

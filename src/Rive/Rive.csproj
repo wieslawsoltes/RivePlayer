@@ -14,10 +14,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>rive;animation;player;vector graphics;rendering;2d;graphics;geometry;shapes;skiasharp;skia;skottie;control;avalonia;avaloniaui</PackageTags>
   </PropertyGroup>
-  <PropertyGroup>
-    <AnalysisLevel>latest</AnalysisLevel>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
