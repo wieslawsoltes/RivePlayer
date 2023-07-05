@@ -109,14 +109,7 @@ public partial class RivePlayer
             return fileStream;
         }
 
-        var loader = AvaloniaLocator.Current.GetService<IAssetLoader>(); 
-        var assetStream = loader?.Open(uri, baseUri);
-        if (assetStream is null)
-        {
-            return default;
-        }
-
-        return assetStream;
+        return AssetLoader.Open(uri, baseUri);
     }
     
     private async void LoadSourceFileDataAsync(string uriString, int sourceToken)

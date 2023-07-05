@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
 namespace RivePlayerSample.Base;
@@ -15,9 +16,9 @@ public partial class MainView : UserControl
         AvaloniaXamlLoader.Load(this);
     }
 
-    protected override void OnLoaded()
+    protected override void OnLoaded(RoutedEventArgs e)
     {
-        base.OnLoaded();
+        base.OnLoaded(e);
 
         // RivePlayer.Source = "https://public.rive.app/community/runtime-files/2244-4463-animated-login-screen.riv";
         // RivePlayer.Source = "https://public.rive.app/community/runtime-files/3466-7249-3d-cube-demo.riv";
